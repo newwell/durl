@@ -36,5 +36,6 @@ if (IS_SAE) {
 $enable_debugmode	= false;
 //URL重写  true or false
 $rewrite_url = true;
-
+//站点链接
+$rewrite_url = 'http://localhost/GitHub/durl/';
 ?>
