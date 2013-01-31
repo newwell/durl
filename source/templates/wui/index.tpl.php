@@ -29,15 +29,15 @@
 				<li class="wui_contentLeftItemList"><a href="#">数据库批量替换</a></li>
 			</ul>
 		</div>
-		<div class="wui_contentLeftTitle"><span></span>系统设置</div>
-		<div class="wui_contentLeftItem">
+		<div class="wui_contentLeftTitle wui_contentLeftTitleActive"><span></span>系统设置</div>
+		<div class="wui_contentLeftItem" style="display: none;">
 			<ul>
 				<li class="wui_contentLeftItemList"><a href="#">系统参数设置</a></li>
 				<li class="wui_contentLeftItemList"><a href="#">修改管理员密码</a></li>
 			</ul>
 		</div>
-		<div class="wui_contentLeftTitle"><span></span>帮助中心</div>
-		<div class="wui_contentLeftItem">
+		<div class="wui_contentLeftTitle wui_contentLeftTitleActive"><span></span>帮助中心</div>
+		<div class="wui_contentLeftItem" style="display: none;">
 			<ul>
 				<li class="wui_contentLeftItemList"><a href="#">如何使用</a></li>
 				<li class="wui_contentLeftItemList"><a href="#">联系我们</a></li>
