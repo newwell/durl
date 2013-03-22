@@ -29,13 +29,11 @@ if (IS_SAE) {
 	$db_name	= 'durl';
 	
 	//站点链接
-	$site_url = 'http://127.0.0.1/bae/souchengyu/1/';
+	$site_url = 'http://127.0.0.1/GitHub/durl/';
 }
 
 //开启数据调试
 $enable_debugmode	= false;
 //URL重写  true or false
 $rewrite_url = true;
-//站点链接
-$rewrite_url = 'http://localhost/GitHub/durl/';
 ?>
