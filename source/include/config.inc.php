@@ -36,4 +36,7 @@ if (IS_SAE) {
 $enable_debugmode	= false;
 //URL重写  true or false
 $rewrite_url = true;
+//表前缀
+$GLOBALS['DZ_CFG']["tablepre"] = 'durl_';
+
 ?>

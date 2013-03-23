@@ -11,6 +11,6 @@ require_once('template.inc.php');	//模板方法
 require_once('db.class.php');		//数据库类
 
 //在这里链接数据库
-$db = new db($db_host,$db_user,$db_pass,$db_name,$enable_debugmode);
+$GLOBALS['_DB_'] = new db($db_host,$db_user,$db_pass,$db_name,$enable_debugmode);
 ob_start();
 ?>

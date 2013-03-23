@@ -26,7 +26,8 @@ include 'source/include/common.inc.php';
 if(Extension_Loaded('zlib')&&IS_SAE) Ob_Start('ob_gzhandler'); 
 //得到模块
 $_m = isset($_GET['m']) ? trim($_GET['m']) : '';
-
+$setting = loadclass('setting');
+echo $setting->setSetting('siteqq',123123123);
 switch ($_m) {
 	case 'index':
 	default:

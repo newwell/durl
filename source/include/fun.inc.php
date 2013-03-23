@@ -197,4 +197,48 @@ function send_http_status($code) {
 function get_gravatar( $email, $size = 80, $default = 'mm') {
     return $grav_url = "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?d=" . urlencode( $default ) . "&s=" . $size;
 }
+/**
+ * 加载类
+ * @param string $classname	类名
+ */
+function loadclass($classname,$initialize='1') {
+	$iclass = BASE_PATH.'source'.DIRECTORY_SEPARATOR.'classes'.DIRECTORY_SEPARATOR.$classname.'.class.php';
+	$key = md5($iclass);
+	if (isset($GLOBALS['_class'][$key])) {
+		if (!empty($GLOBALS['_class'][$key])) {
+			return $GLOBALS['_class'][$key];
+		} else {
+			return true;
+		}
+	}
+	if (file_exists($iclass)) {
+		include $iclass;
+		if ($initialize) {
+			$GLOBALS['_class'][$key] = new $classname;
+		} else {
+			$GLOBALS['_class'][$key] = true;
+		}
+			return $GLOBALS['_class'][$key];
+	} else {
+		throw_exception($iclass.'没有找到');
+		return false;
+	}
+}
+/**
+ * 自定义异常处理函数
+ * @param string $msg
+ */
+function throw_exception($msg) {
+	exit($msg);
+}
+/**
+ * 获取配置文件
+ * @param string $msg
+ */
+function getConfig($config){
+	if (array_key_exists($config, $GLOBALS['DZ_CFG'])) {
+		return $GLOBALS['DZ_CFG'][$config];
+	}
+	return '';
+}
 ?>
