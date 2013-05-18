@@ -45,13 +45,13 @@ elseif($todo=="optimize") //数据表优化操作
         } 
     }
     
-    s('database_optimize_success','?action=database&todo=list');
+    s('database_optimize_success','?action='.$act["action"].'&todo=list');
 }
 elseif($todo=="backup")
 {
 	//初始化随机文件名
 	$filename  = gmdate('ymdHi',$localtime).'_'.random(8);
-    $filearr   = getFile('databackup',array('sql','zip'));
+    $filearr   = getFile('data/backup/',array('sql','zip'));
     include template('data_backup');
     
 }
@@ -97,7 +97,7 @@ elseif($todo=="dobackup") //数据表备份操作
 	//获得当前正在到处的表的索引号
 	$tableid = $i;
 	//初始化数据库备份文件文件夹路径
-	$dumpfile = 'databackup/';
+	$dumpfile = 'data/backup/';
 	//生成分卷文件名称
 	$dumpfile .= $filename .'_#num#.sql';
 	//分卷编号

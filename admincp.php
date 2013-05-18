@@ -207,7 +207,6 @@ switch($action) {
 					s('登陆失效','./');
 				break;
 			}
-			$gonggao = getNewGongGao();//最新公告
 		}
 		include template($todo);
 		break;
