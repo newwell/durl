@@ -1,5 +1,3 @@
-<?php #tplhash=c3d661aa7ac936c4ccc4d81f33016500 ?>
-<?php #createtime=2009-03-11 12:35:25 ?>
 <?php if(!defined('IN_SITE')) exit('Access Denied'); ?>
 <?php include template('header'); ?>
 <style>
@@ -49,8 +47,8 @@ nav[i].style.fontWeight = '';
 </script>
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
   <tr>
-    <td width="31%" background="<?=$_TEMPLATESDIR?>/image/pic_bg.gif" height="60" class="top2">峰易海贸易有限公司</td>
-    <td width="69%" align="right" background="<?=$_TEMPLATESDIR?>/image/pic_bg.gif" class="top2">站务管理系统</td>
+    <td width="31%" background="<?=$_TEMPLATESDIR?>/image/pic_bg.gif" height="60" class="top2">-</td>
+    <td width="69%" align="right" background="<?=$_TEMPLATESDIR?>/image/pic_bg.gif" class="top2">DURL短网址管理</td>
   </tr>
 </table>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
