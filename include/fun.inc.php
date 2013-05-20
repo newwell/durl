@@ -530,11 +530,11 @@ function CheckAccess()
 			//常规无权限跳转
 			echo "<script>\n";
 			echo "try {\n ";
-			echo "parent.window.location.href='admincp.php';\n ";
+			echo "parent.window.location.href='?';\n ";
 			echo "}\n ";
 			echo "catch(e)\n ";
 			echo "{\n ";
-			echo "location.window.href='admincp.php';\n ";
+			echo "location.window.href='?';\n ";
 			echo "}\n ";
 			echo "</script>";
 			exit();

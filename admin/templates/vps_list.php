@@ -1,5 +1,3 @@
-<?php #tplhash=8b10666abf9328bc2f95f7f9f1f246fc ?>
-<?php #createtime=2008-06-20 8:53:54 ?>
 <?php if(!defined('IN_SITE')) exit('Access Denied'); ?>
 <?php include template('header'); ?>
 <div class="formnav">服务器列表</div> 

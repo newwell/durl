@@ -69,7 +69,7 @@ switch($action) {
 		$sql = "INSERT INTO {$tablepre}systemuser (`actions`,`username`, `zname`, `password`, `userlevel`, `yuanxi`, `bumen`, `zhiwei`, `tel`, `phone`) 
 		VALUES ('$actions','$username', '$zname', '$password', '$userlevel', '$yuanxi', '$bumen', '$zhiwei', '$tel', '$phone')";
 		$db->query($sql);		
-		s('用户添加成功','admincp.php?action=system_user&todo=list');
+		s('用户添加成功','?action=system_user&todo=list');
 		
 		
 	break;
@@ -120,7 +120,7 @@ switch($action) {
 	case 'logout' :
 		//关闭SESSION
 		session_destroy();
-		s("common_exit_success","admincp.php");
+		s("common_exit_success","?");
 	//显示操作
 	case 'show' :
 		CheckAccess();

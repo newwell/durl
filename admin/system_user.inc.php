@@ -376,7 +376,7 @@ elseif($todo=="saveedit")
 	if($_SESSION['userlevel'] == 1) {
 		s('user_update_sucess','?action='.$act['action'].'&todo=list');
 	}else{
-		s('修改成功','admincp.php?action=zhouzhi');
+		s('修改成功','?action=zhouzhi');
 	}
 	
 }

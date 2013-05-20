@@ -4,7 +4,7 @@
 <?php  include template('header'); ?>
 
 <div class="formnav">管理员信息修改</div>
-<form name="creator" action="admincp.php?action=<?=$act['action']?>&todo=saveadd" method="post" onsubmit="return CheckForm(this,true);">
+<form name="creator" action="?action=<?=$act['action']?>&todo=saveadd" method="post" onsubmit="return CheckForm(this,true);">
 <input type="hidden" value="<?=$formhash?>" name="formhash">
 <table align="center" class="formtable" cellpadding="0" cellspacing="1" width="580">
 <tr>

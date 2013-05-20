@@ -1,5 +1,3 @@
-<?php #tplhash=03a48c144ab42cc1d99693b3d40fa8da ?>
-<?php #createtime=2009-03-11 12:43:31 ?>
 <?php if(!defined('IN_SITE')) exit('Access Denied'); ?>
 <?php include template('header'); ?>
 <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">

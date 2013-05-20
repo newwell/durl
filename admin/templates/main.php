@@ -80,7 +80,7 @@ nav[i].style.fontWeight = '';
 <table border="0" cellpadding="0" cellspacing="0" height="89%" width="100%" style="table-layout: fixed;">
   <tr>
     <td width="205" id="left">
-      <iframe frameborder="0" id="menu" name="menu" src="admincp.php?action=show&todo=left&do=system" scrolling="yes" style="height: 100%; width: 100%; z-index: 1;overflow: auto;"></iframe>
+      <iframe frameborder="0" id="menu" name="menu" src="?action=show&todo=left&do=system" scrolling="yes" style="height: 100%; width: 100%; z-index: 1;overflow: auto;"></iframe>
     </td>
     <td style="WIDTH:7px" bgcolor="#276CB2">
       <table height="100%" cellspacing="0" cellpadding="0" border="0">
@@ -95,7 +95,7 @@ nav[i].style.fontWeight = '';
       <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
         <tr>
           <td>
-            <iframe frameborder="0" id="main" name="mainFrame" src="admincp.php?action=show&todo=index" scrolling="yes" style="Z-INDEX: 1; VISIBILITY: inherit; WIDTH:100%; HEIGHT:100%;"></iframe>
+            <iframe frameborder="0" id="main" name="mainFrame" src="?action=show&todo=index" scrolling="yes" style="Z-INDEX: 1; VISIBILITY: inherit; WIDTH:100%; HEIGHT:100%;"></iframe>
           </td>
         </tr>
       </table>
