@@ -9,6 +9,7 @@
 <title>管理员控制面板</title>
 <link rel="stylesheet" href="<?php echo $_TEMPLATESDIR;?>/css.css" />
 <link type="text/css" rel="stylesheet" href="script/Date_Time/skin/WdatePicker.css">
+<script src="script/prototype.js" type="text/javascript"></script>
 <script src="script/class.js" type="text/javascript"></script>
 <script src="script/common.js" type="text/javascript"></script>
 <script src="script/admin.js" type="text/javascript"></script>

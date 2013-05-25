@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 05 月 18 日 08:14
+-- 生成日期: 2013 年 05 月 25 日 07:13
 -- 服务器版本: 5.1.36-community-log
 -- PHP 版本: 5.3.10
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `durl_settings` (
 --
 
 INSERT INTO `durl_settings` (`variable`, `value`) VALUES
-('sitename', '峰易海贸易有限公司	站务管理系统'),
+('sitename', '峰易海站务管理系统'),
 ('sitephone', '13026105388'),
 ('siteaddress', '湖北省武汉市'),
 ('siteemail', 'hubei_java@qq.com'),
@@ -61,7 +61,7 @@ INSERT INTO `durl_settings` (`variable`, `value`) VALUES
 ('sitebrowser', '建议在IE6以上浏览器 1024*768分辨率下浏览本站'),
 ('sitehelp', '技术支持：<a href="http://www.51tek.com" target="_blank">湖北华秦教育软件技术有限公司</a>'),
 ('sitedescription', '峰易海贸易有限公司	站务管理系统'),
-('sitekeywords', '峰易海贸易有限公司	站务管理系统'),
+('sitekeywords', '峰易海贸易系统'),
 ('siteqq', '1040811569');
 
 -- --------------------------------------------------------
@@ -95,9 +95,9 @@ INSERT INTO `durl_systemaction` (`id`, `fid`, `title`, `action`, `todo`, `do`, `
 (35, 29, '批量导入', 'batch_in', NULL, NULL, 'batch.inc.php', 0),
 (34, 29, '批量导出', 'batch_out', NULL, NULL, 'batch.inc.php', 0),
 (33, 29, '批量添加', 'batch_add', NULL, NULL, '', 0),
-(32, 28, '还原短网址', 'shorturl_restore', NULL, NULL, 'shorturl.inc.php', 3),
-(31, 28, '添加短网址', 'shorturl_add', NULL, NULL, 'shorturl.inc.php', 2),
-(30, 28, '查看所有', 'shorturl_list', NULL, NULL, 'shorturl.inc.php', 1),
+(32, 28, '还原短网址', 'shorturl_restore', 'restore', NULL, 'shorturl.inc.php', 3),
+(31, 28, '添加短网址', 'shorturl_add', 'add', NULL, 'shorturl.inc.php', 2),
+(30, 28, '查看所有', 'shorturl_list', 'list', NULL, 'shorturl.inc.php', 1),
 (29, 0, '批量操作', '0', '0', '0', '0', 0),
 (28, 0, '短网址', '0', '0', '0', '0', 0),
 (36, 0, '数据管理', '0', NULL, NULL, '0', 0),
@@ -133,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `durl_systemuser` (
 --
 
 INSERT INTO `durl_systemuser` (`id`, `username`, `zname`, `password`, `lastlogintime`, `lastloginip`, `actions`, `userlevel`, `bumen`, `zhiwei`, `QQ`, `phone`) VALUES
-(1, 'admin', '管理员', 'e10adc3949ba59abbe56e057f20f883e', 1368870788, '127.0.0.1', 'all', 1, '1', '', '0', '0'),
+(1, 'admin', '管理员', 'e10adc3949ba59abbe56e057f20f883e', 1369478911, '127.0.0.1', 'all', 1, '1', '', '0', '0'),
 (24, 'liuwei', '刘维', 'e10adc3949ba59abbe56e057f20f883e', 1330192055, '127.0.0.1', 'system_set,database_query,system_user,vps,m_website', 2, '1', '程序员', '1040811569', '13026105388'),
 (245, 'wanghuijun', '王慧君', 'e10adc3949ba59abbe56e057f20f883e', 1324047804, '127.0.0.1', 'all', 3, '5', '前台', '402158246', ''),
 (243, 'youjuan', '游娟', 'e10adc3949ba59abbe56e057f20f883e', 1323872067, '127.0.0.1', 'system_user,zhouzhi,announcement', 3, '1', '美工', '347130829', '18702761393'),
@@ -142,6 +142,43 @@ INSERT INTO `durl_systemuser` (`id`, `username`, `zname`, `password`, `lastlogin
 (247, 'lijingbo', '李敬波', 'e10adc3949ba59abbe56e057f20f883e', 1324052045, '127.0.0.1', 'all', 3, '3', '客服专员', '514822563', ''),
 (248, 'liuying', '刘莹', 'e10adc3949ba59abbe56e057f20f883e', 1325930665, '127.0.0.1', 'system_user,zhouzhi,announcement', 3, '2', '推广员', '2295266346', ''),
 (249, 'qweqweq', '陈华峰', 'e10adc3949ba59abbe56e057f20f883e', 1330357427, '127.0.0.1', '', 2, '4', '主管', '676529424', '13216546465');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `durl_urls`
+--
+
+CREATE TABLE IF NOT EXISTS `durl_urls` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `url` text NOT NULL COMMENT '连接地址',
+  `alias` varchar(40) DEFAULT NULL COMMENT '别名',
+  `add_date` int(10) NOT NULL COMMENT '添加日期',
+  `annotation` text COMMENT '注释',
+  `times` int(20) DEFAULT '0' COMMENT '次数',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='链接表' AUTO_INCREMENT=54 ;
+
+--
+-- 转存表中的数据 `durl_urls`
+--
+
+INSERT INTO `durl_urls` (`id`, `url`, `alias`, `add_date`, `annotation`, `times`) VALUES
+(32, 'http://app.dazan.cn/', 'dazan', 1369321496, 'a1122', 0),
+(34, 'http://www.dazan.cn/module-12.html', 'get', 1369319804, 'asdfasdfasdaaadsa', 0),
+(37, 'http://127.0.0.1/test/get_headers.php', 'getQQ', 1369321599, 'asdf', 0),
+(38, 'adsfffffffffffffffffffffffaaasdddddddddddddddddddddddddddddd', NULL, 12312312, 'asdfasdfasdf', 0),
+(39, 'http://app.dazan.cn/', 'daza', 1369321781, 'asdfasdfasdf', 0),
+(42, '双方斯蒂芬', '试试', 123123, '斯蒂芬', 0),
+(45, 'http://www.dazan.cn/module-12.html', '', 1369493690, '', 0),
+(46, 'http://www.dazan.cn/module-12.html', '', 1369493694, '', 0),
+(47, 'http://www.dazan.cn/module-12.html', '', 1369493695, '', 0),
+(48, 'http://www.dazan.cn/module-12.html', '', 1369493696, '', 0),
+(49, 'http://www.dazan.cn/module-12.html', '', 1369493698, '', 0),
+(50, 'http://www.dazan.cn/module-12.html', '', 1369493699, '', 0),
+(51, 'http://www.dazan.cn/module-12.html', '', 1369493700, '', 0),
+(52, 'http://www.dazan.cn/module-12.html', '', 1369493701, '', 0),
+(53, 'http://www.dazan.cn/module-12.html', '', 1369493702, '', 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

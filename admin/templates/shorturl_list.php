@@ -3,7 +3,7 @@
 <div class="formnav">所有短网址</div> 
 <form  method="post" id="data" action="?action=shorturl_list">
 <input type="hidden" value="<?php echo $formhash;?>" name="formhash">
-<style>.xiankuan{max-width: 220px;overflow: hidden;text-overflow: ellipsis;width: 220px;}</style>
+<style>.xiankuan{max-width: 220px;overflow: hidden;text-overflow: ellipsis;width: 220px;white-space:nowrap;}</style>
 <table width="98%"  border="0" cellpadding="0" cellspacing="0" align="center">
   <tr>
     <td valign="top" align="center" width="100%">

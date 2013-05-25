@@ -59,10 +59,72 @@ function shorturl_get($idArr=array(),$fields='*') {
 	$result	= $db->fetch_one_array($sql);
 	return $result;
 }
-
-
-
-
+/**
+ * 更新指定ID的url信息
+ * @param int		$id			ID
+ * @param array()	$infoArr	修改的条件   array('url'=>"http://www.dazan.cn")
+ */
+function shorturl_update($id,$infoArr) {
+	global $db,$tablepre;
+	if (empty($infoArr)) return false;
+	$sql = "UPDATE  `{$tablepre}urls` SET ";
+	foreach ($infoArr as $key => $value) {
+		$sql.= "`$key` =  '$value',";
+	}
+	//去掉最后一个多余的,
+	$sql = substr($sql,0,strlen($sql)- 1);
+	$sql.=" WHERE `id` =$id;";
+	return $db->query($sql);
+}
+/**
+ * 检查指定字段的值是够存在
+ * @param int		$id				字段
+ * @param string	$alias				值
+ * @return int		$result['countnum']	返回几条
+ */
+function shorturl_alias_check($id,$alias) {
+	global $db,$tablepre;
+	if (empty($id)) {
+		$sql = "SELECT COUNT(id) AS countnum FROM {$tablepre}urls WHERE `alias` = '$alias'";
+	}else {
+		$sql = "SELECT COUNT(id) AS countnum FROM {$tablepre}urls WHERE `alias` = '$alias' AND `id` !=$id";
+	}
+	$result	= $db->fetch_one_array($sql);
+	if ($result['countnum']>0) {
+		return true;
+	}
+	return false;
+}
+/**
+ * 更新指定ID的url信息
+ * @param int		$id			ID
+ * @param array()	$infoArr	修改的条件   array('url'=>"http://www.dazan.cn")
+ */
+function shorturl_add($infoArr) {
+	global $db,$tablepre;
+	if (empty($infoArr)) return false;
+	$sql = "INSERT INTO  `{$tablepre}urls` (";
+	foreach ($infoArr as $key => $value) {
+		$sql.="`$key` ,";
+	}
+	$sql = substr($sql,0,strlen($sql)- 1);
+	$sql.=")VALUES (";
+	foreach ($infoArr as $key => $value) {
+		$sql.= " '$value',";
+	}
+	//去掉最后一个多余的,
+	$sql = substr($sql,0,strlen($sql)- 1);
+	$sql.=");";
+	return $db->query($sql);
+}
+function shorturl_restore($code) {
+	global $db,$tablepre;
+	if(empty($code))return false;
+	$id = base_convert($code,36,10);
+	$sql = "SELECT * FROM  `{$tablepre}urls`WHERE id='$id' OR alias='$code' ORDER BY alias DESC LIMIT 1";
+	$result	= $db->fetch_one_array($sql);
+	return $result;
+}
 
 
 
