@@ -117,6 +117,10 @@ function shorturl_add($infoArr) {
 	$sql.=");";
 	return $db->query($sql);
 }
+/**
+ * 通过短码或者别名还原网站
+ * @param string $code	短码或别名
+ */
 function shorturl_restore($code) {
 	global $db,$tablepre;
 	if(empty($code))return false;

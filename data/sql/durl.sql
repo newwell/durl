@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 05 月 25 日 07:13
+-- 生成日期: 2013 年 05 月 30 日 08:23
 -- 服务器版本: 5.1.36-community-log
 -- PHP 版本: 5.3.10
 
@@ -92,9 +92,9 @@ INSERT INTO `durl_systemaction` (`id`, `fid`, `title`, `action`, `todo`, `do`, `
 (4, 1, '用户管理', 'system_user', 'list', '1', 'system_user.inc.php', 0),
 (5, 36, '数据库优化', 'database_optimize', 'list', '', 'data.inc.php', 3),
 (6, 36, '数据库备份', 'database_backup', 'backup', '', 'data.inc.php', 4),
-(35, 29, '批量导入', 'batch_in', NULL, NULL, 'batch.inc.php', 0),
-(34, 29, '批量导出', 'batch_out', NULL, NULL, 'batch.inc.php', 0),
-(33, 29, '批量添加', 'batch_add', NULL, NULL, '', 0),
+(35, 29, '批量导入', 'batch_in', 'in', NULL, 'batch.inc.php', 0),
+(34, 29, '批量导出', 'batch_out', 'out', NULL, 'batch.inc.php', 0),
+(33, 29, '批量添加', 'batch_add', 'add', NULL, 'batch.inc.php', 0),
 (32, 28, '还原短网址', 'shorturl_restore', 'restore', NULL, 'shorturl.inc.php', 3),
 (31, 28, '添加短网址', 'shorturl_add', 'add', NULL, 'shorturl.inc.php', 2),
 (30, 28, '查看所有', 'shorturl_list', 'list', NULL, 'shorturl.inc.php', 1),
@@ -133,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `durl_systemuser` (
 --
 
 INSERT INTO `durl_systemuser` (`id`, `username`, `zname`, `password`, `lastlogintime`, `lastloginip`, `actions`, `userlevel`, `bumen`, `zhiwei`, `QQ`, `phone`) VALUES
-(1, 'admin', '管理员', 'e10adc3949ba59abbe56e057f20f883e', 1369478911, '127.0.0.1', 'all', 1, '1', '', '0', '0'),
+(1, 'admin', '管理员', 'e10adc3949ba59abbe56e057f20f883e', 1369912641, '127.0.0.1', 'all', 1, '1', '', '0', '0'),
 (24, 'liuwei', '刘维', 'e10adc3949ba59abbe56e057f20f883e', 1330192055, '127.0.0.1', 'system_set,database_query,system_user,vps,m_website', 2, '1', '程序员', '1040811569', '13026105388'),
 (245, 'wanghuijun', '王慧君', 'e10adc3949ba59abbe56e057f20f883e', 1324047804, '127.0.0.1', 'all', 3, '5', '前台', '402158246', ''),
 (243, 'youjuan', '游娟', 'e10adc3949ba59abbe56e057f20f883e', 1323872067, '127.0.0.1', 'system_user,zhouzhi,announcement', 3, '1', '美工', '347130829', '18702761393'),
@@ -157,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `durl_urls` (
   `annotation` text COMMENT '注释',
   `times` int(20) DEFAULT '0' COMMENT '次数',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='链接表' AUTO_INCREMENT=54 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='链接表' AUTO_INCREMENT=151 ;
 
 --
 -- 转存表中的数据 `durl_urls`
@@ -167,18 +167,32 @@ INSERT INTO `durl_urls` (`id`, `url`, `alias`, `add_date`, `annotation`, `times`
 (32, 'http://app.dazan.cn/', 'dazan', 1369321496, 'a1122', 0),
 (34, 'http://www.dazan.cn/module-12.html', 'get', 1369319804, 'asdfasdfasdaaadsa', 0),
 (37, 'http://127.0.0.1/test/get_headers.php', 'getQQ', 1369321599, 'asdf', 0),
-(38, 'adsfffffffffffffffffffffffaaasdddddddddddddddddddddddddddddd', NULL, 12312312, 'asdfasdfasdf', 0),
 (39, 'http://app.dazan.cn/', 'daza', 1369321781, 'asdfasdfasdf', 0),
-(42, '双方斯蒂芬', '试试', 123123, '斯蒂芬', 0),
-(45, 'http://www.dazan.cn/module-12.html', '', 1369493690, '', 0),
-(46, 'http://www.dazan.cn/module-12.html', '', 1369493694, '', 0),
-(47, 'http://www.dazan.cn/module-12.html', '', 1369493695, '', 0),
-(48, 'http://www.dazan.cn/module-12.html', '', 1369493696, '', 0),
-(49, 'http://www.dazan.cn/module-12.html', '', 1369493698, '', 0),
-(50, 'http://www.dazan.cn/module-12.html', '', 1369493699, '', 0),
-(51, 'http://www.dazan.cn/module-12.html', '', 1369493700, '', 0),
-(52, 'http://www.dazan.cn/module-12.html', '', 1369493701, '', 0),
-(53, 'http://www.dazan.cn/module-12.html', '', 1369493702, '', 0);
+(54, 'http://www.baidu.com\r', NULL, 1369856989, NULL, 0),
+(55, 'http://www.dazan.cn\r', NULL, 1369856989, NULL, 0),
+(83, 'http://www.taobao.com\r', NULL, 1369857073, NULL, 0),
+(61, 'http://www.taobao.com\r', NULL, 1369856989, NULL, 0),
+(88, 'http://www.dazan.cn\r', NULL, 1369857148, NULL, 0),
+(65, 'http://www.baidu.com\r', NULL, 1369857039, NULL, 0),
+(66, 'http://www.dazan.cn\r', NULL, 1369857039, NULL, 0),
+(77, 'http://www.dazan.cn\r', NULL, 1369857073, NULL, 0),
+(72, 'http://www.taobao.com\r', NULL, 1369857039, NULL, 0),
+(76, 'http://www.baidu.com\r', NULL, 1369857073, NULL, 0),
+(87, 'http://www.baidu.com\r', NULL, 1369857148, NULL, 0),
+(94, 'http://www.taobao.com\r', NULL, 1369857148, NULL, 0),
+(98, 'http://www.baidu.com\r', NULL, 1369857155, NULL, 0),
+(99, 'http://www.dazan.cn\r', NULL, 1369857155, NULL, 0),
+(105, 'http://www.taobao.com\r', NULL, 1369857155, NULL, 0),
+(139, 'http://www.baidu.com', NULL, 1369913156, NULL, 0),
+(149, 'http://www.baidu.com', NULL, 1369914849, NULL, 0),
+(136, 'http://www.taobao.com', NULL, 1369913087, NULL, 0),
+(135, 'http://www.dazan.cn', NULL, 1369913087, NULL, 0),
+(134, 'http://www.taobao.com', NULL, 1369913075, NULL, 0),
+(133, 'http://www.dazan.cn', NULL, 1369913075, NULL, 0),
+(132, 'http://www.taobao.com', NULL, 1369913004, NULL, 0),
+(131, 'http://www.dazan.cn', NULL, 1369913004, NULL, 0),
+(130, 'http://www.taobao.com', NULL, 1369912923, NULL, 0),
+(129, 'http://www.dazan.cn', NULL, 1369912923, NULL, 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

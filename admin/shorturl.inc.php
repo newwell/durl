@@ -90,8 +90,7 @@ switch ($todo) {
 		$page_array = array();
 		$total		= shorturl_total();
 		$page_control = multipage($total,$perpage,$page);
-		$durlArr	= shorturl_list($startlimit, $perpage);
-		
+		$durlArr	= shorturl_list($startlimit, $perpage);		
 		include template('shorturl_list');
 	break;
 }
