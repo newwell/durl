@@ -1,4 +1,6 @@
 <?php
+//这个类里面有很多已经被启用的函数.为了不影响生成效果.所以屏蔽报错
+ini_set("display_errors",0);
 define('ABC_CRITICAL', 0);
 define('ABC_ERROR', 1);
 define('ABC_ALERT', 2);

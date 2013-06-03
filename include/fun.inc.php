@@ -831,7 +831,7 @@ function getFile($dir,$ext='')
 					$fileArr[] = array(
 	                                'size'=>filesize($dir."/".$file).'kb',
 	                                'edittime'=>gmdate ("Y-n-j  H:i:s", filemtime($dir."/".$file) + 8 * 3600 ),
-	                                'name'=>$dir."/".gb2utf8($file)
+	                                'name'=>$dir.gb2utf8($file)
 	                                 );
 				}
 			}
@@ -975,6 +975,50 @@ function u2utf82gb($c)
 	} 
 	return $str;
 	//return iconv('UTF-8', 'GB2312', $str);
+}
+/**
+ * 文件上传处理函数
+ *
+ * @access  public
+ *
+ * @param   string      $filename      文件名称
+ * @param   string      $tmpfile       临时文件名
+ * @param   int			$filesize      文件大小
+ * @param   string      $attach_dir    存放文件夹位置
+ * @param   string      $uploadroot    上传文件夹根目录位置
+ * @param   string      $uploadpath    上传文件夹目录
+ *
+ * @return  string
+ */
+function uploadfile($filename,$tmpfile,$filesize,$type,$attach_dir='file',$uploadroot='',$uploadpath='')
+{
+
+    global $localtime;
+    $extension  = strtolower(substr(strrchr($filename, "."),1));
+	$filename   = $localtime.'.'.$extension;
+
+    if (!in_array($extension, $type))
+        e('common_file_type_error');
+    //if($filesize>$attach_maxsize)
+       // e('common_file_toolarge');
+    //转移附件--按年月分类附件
+	if($uploadroot=='')
+		$uploadroot = 'data/upload/';
+	if($uploadpath=='')
+		$uploadpath = 'data/upload/'.date("Ym")."/";
+    $attachpath = $uploadpath.$filename;
+
+    if(!is_dir($uploadroot))
+        @mkdir($uploadroot,0777) OR die("权限不足无法创建".$uploadroot."目录!请手动创建并设置权限为777");
+    if(!is_dir($uploadpath))
+        @mkdir($uploadpath,0777) OR die("创建".$uploadpath."目录失败");
+    if(@is_uploaded_file($tmpfile)){
+        if(!@move_uploaded_file($tmpfile ,$attachpath)){
+                @unlink($tmpfile);//删除临时文件
+                e('common_file_uploaderror');
+        }
+    }
+    return $attachpath;
 }
  
  ?>

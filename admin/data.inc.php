@@ -78,8 +78,10 @@ elseif($todo=="dobackup") //数据表备份操作
 	//数据是否扩展插入
 	$extendins  = 0;
 	//系统表数组
-	$tables   = array('classdeclarecontent','declarecate','judge','onlineuser','select ','settings','sitearticle','sitebook','sitecategory','sitecourse','sitefriendlink','sitemodule','statistic','systemaction','systemuser','teacher','video 
-	','votes','votetoplic');
+	$tables   = array('settings',
+						'systemaction',
+						'systemuser',
+						'urls');
 	//初始化SQL语句
 	$sqldump = '';
 	//表数组索引号
@@ -97,7 +99,10 @@ elseif($todo=="dobackup") //数据表备份操作
 	//获得当前正在到处的表的索引号
 	$tableid = $i;
 	//初始化数据库备份文件文件夹路径
-	$dumpfile = 'data/backup/';
+	
+	$backup_file_dir = dirname(__FILE__).DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'data'.DIRECTORY_SEPARATOR.'backup'.DIRECTORY_SEPARATOR;
+//	$dumpfile = 'data/backup'.DIRECTORY_SEPARATOR;
+	$dumpfile = $backup_file_dir;
 	//生成分卷文件名称
 	$dumpfile .= $filename .'_#num#.sql';
 	//分卷编号
@@ -141,6 +146,7 @@ elseif($todo=="dobackup") //数据表备份操作
 			$zip->addFile($sqldump,str_replace('#num#',$volume,$filename.'_#num#.sql'));
 			//更换文件后缀
 			$dumpfile = str_replace('.sql','.zip',$dumpfile);
+			
 			//获得打包后的数据内容
 			$sqldump = $zip->file();
 			unset($zip);
@@ -156,14 +162,14 @@ elseif($todo=="dobackup") //数据表备份操作
 		} 
 
 		//开始循环跳转备份
-		s('database_backup_success_next', "?action=database&todo=dobackup&filename=".rawurlencode($filename)."&sizelimit=".rawurlencode($sizelimit)."&volume=".rawurlencode($volume)."&tableid=".rawurlencode($tableid)."&startfrom=".rawurlencode($startrow)."&extendins=".rawurlencode($extendins)."&sqlcharset=".rawurlencode($sqlcharset)."&sqlcompat=".rawurlencode($sqlcompat)."&usehex=$usehex&ziped=$ziped");
+		s('database_backup_success_next', "?action=database_backup&todo=dobackup&filename=".rawurlencode($filename)."&sizelimit=".rawurlencode($sizelimit)."&volume=".rawurlencode($volume)."&tableid=".rawurlencode($tableid)."&startfrom=".rawurlencode($startrow)."&extendins=".rawurlencode($extendins)."&sqlcharset=".rawurlencode($sqlcharset)."&sqlcompat=".rawurlencode($sqlcompat)."&usehex=$usehex&ziped=$ziped");
 	}
 	else
 	{
 		//如果设定全部SQL文件打包
 		if($ziped==2)
 		{
-			$sqlfiles = glob("databackup/{$filename}_*.sql");
+			$sqlfiles = glob($backup_file_dir.$filename."_*.sql");
 			foreach($sqlfiles as $key => $sql)
 			{
 				$sqldump = file_get_contents($sql);
@@ -172,7 +178,7 @@ elseif($todo=="dobackup") //数据表备份操作
 			
 			$sqldump = $zip->file();
 			unset($zip);
-			$dumpfile = "databackup/{$filename}.zip";
+			$dumpfile = $backup_file_dir.$filename.".zip";
 			@$fp = fopen($dumpfile, 'wb');
 			@flock($fp, 2);
 			if(@!fwrite($fp, $sqldump)) 
@@ -197,8 +203,8 @@ elseif($todo=="importzip") //导入压缩数据文件操作
 	$backupfile = $_GET['datafile'];
 	
 	//文件身份及文件名确认
-	if(is_file($backupfile) && preg_match("/^databackup\/[\w]+\.zip$/i", $backupfile)) 
-	{
+	if(is_file($backupfile) && preg_match("/^data\/backup\/[\w]+\.zip$/i", $backupfile)) 
+	{ 
 		//载入压缩包处理类
 		require_once 'include/phpzip.class.php';
 		
@@ -244,11 +250,11 @@ elseif($todo=='import') //导入数据
 	$datafile   = $_GET['datafile'];
 	//自动导入
 	$autoimport = $_GET['autoimport'];
-	
+	var_dump($autoimport);exit();
 	//文件夹自动识别
-	if(!preg_match('/^databackup\//i',$datafile))
+	if(!preg_match('/^data\/backup\//i',$datafile))
 	{
-		$datafile = 'databackup/' . $datafile ;
+		$datafile = 'data/backup/' . $datafile ;
 	}
 	//文件名自动识别
 	if(!preg_match('/\.sql$/i',$datafile))
@@ -284,7 +290,7 @@ elseif($todo=='import') //导入数据
 		//读取文件
 		$sqldump .= fread($fp, filesize($datafile));
 		fclose($fp);
-	} 
+	}
 	else 
 	{
 		if($autoimport=='yes')
