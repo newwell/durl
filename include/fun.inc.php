@@ -813,7 +813,7 @@ function getFile($dir,$ext='')
 	            if(is_file($dir."/".$file))
 	            {
 	                $fileArr[] = array(
-	                                'size'=>filesize($dir."/".$file).'kb',
+	                                'size'=>(filesize($dir."/".$file)/1024).'kb',
 	                                'edittime'=>gmdate ("Y-n-j  H:i:s", filemtime($dir."/".$file) + 8 * 3600 ),
 	                                'name'=>$dir."/".gb2utf8($file)
 	                                 );
@@ -829,7 +829,7 @@ function getFile($dir,$ext='')
 				if(preg_match('/\.'.$ext.'$/',$file))
 				{
 					$fileArr[] = array(
-	                                'size'=>filesize($dir."/".$file).'kb',
+	                                'size'=>(filesize($dir."/".$file)/1024).'kb',
 	                                'edittime'=>gmdate ("Y-n-j  H:i:s", filemtime($dir."/".$file) + 8 * 3600 ),
 	                                'name'=>$dir.gb2utf8($file)
 	                                 );

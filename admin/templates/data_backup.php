@@ -19,7 +19,7 @@
         备份数据库文件兼容格式:
         </td>
    		<td>
-   	        <input class="radio" type="radio" name="sqlcompat" value="MYSQL40"> MySQL 3.23/4.0.x &nbsp; <input class="radio" type="radio" name="sqlcompat" value="MYSQL41" checked> MySQL 4.1.x/5.x &nbsp;
+   	        <!-- <input class="radio" type="radio" name="sqlcompat" value="MYSQL40"> MySQL 3.23/4.0.x &nbsp; --> <input class="radio" type="radio" name="sqlcompat" value="MYSQL41" checked> MySQL 4.1.x/5.x &nbsp;
    		</td>
    	</tr>
    	
