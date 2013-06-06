@@ -34,9 +34,6 @@ if($todo=="list"){
 		//转换时间(将秒数转化成当前年-月-日-时：分的格式)
 		$admin['lastlogintime'] =  gmdate('Y-n-j  H:i',$admin['lastlogintime']);
 		$admin['QQ'] = r_qq($admin['QQ']);
-		$admin['bumen'] = getDepartment($admin['bumen']);
-		//转换管理员级别名称
-		$admin["userlevel"] = getJiBie($admin["userlevel"]);
 		$adminarr[] = $admin; 	
 	}
 	$page_control = multipage($total,$perpage,$page);
@@ -182,58 +179,18 @@ elseif($todo=="saveadd") //处理添加新用户
 //--编辑
 elseif($todo=="edituser")
 {
-	$uid = intval($_GET['uid']);
+	//$uid = intval($_GET['uid']);
+	$uid = intval($_SESSION['uid']);
 	$userinfo = getUserInfo($uid);
-	$depaQuery = $db->query("SELECT * FROM  {$tablepre}department ORDER BY sunx ASC");
-	while($depa = $db->fetch_array($depaQuery)){
-		$depaArr[] = $depa; 	
-	}
+
 	if($userinfo){
 		$username = $userinfo['username'];
 	}else{
 		e("user_username_notexist");
 	}
 	$userarr = $userinfo;
-	//print_r($userarr);
-	//网站模块列表
-	//$c="c";
-	$cate_result = $db->query("SELECT * FROM {$tablepre}systemaction WHERE fid = 0");
-	$cates = array();
-	while($cate = $db->fetch_array($cate_result))
-	{
-		$cate['childs'] = array();
-		$child_result = $db->query("SELECT * FROM {$tablepre}systemaction WHERE fid = " .$cate['id'] );
-		while($child = $db->fetch_array($child_result))
-		{
-			//该管理员相应权限检查,如果有则增加一个索引标定该模块本管理员有访问权限
-			$child['cando'] = (strpos($userarr['actions'], $child['action']) !== false || $userarr['actions'] == 'all') ? 1 : 0;
-			$cate['childs'][] = $child;
-		}
-		$cates[] = $cate;
-	}
 	$supadmincheck = $userarr['userlevel']== 1 ? 'checked' : '';
 	$admincheck    = $userarr['userlevel']== 2 ? 'checked' : '';
-	
-	//课程网站内容栏目列表
-	$m="m";
-	$lanmu_result = $db->query("SELECT * FROM {$tablepre}sitemodule WHERE fid = 0");
-	$lanmu_arr = array();
-	while($lanmu = $db->fetch_array($lanmu_result)){
-		$lanmu['cando'] = (strpos($userarr['actions'], $m.$lanmu['id'].$m) !== false || $userarr['actions'] == 'all') ? 1 : 0;
-		$lanmu_arr[] = $lanmu;
-	}
-	
-	//申报网站内容栏目列表
-	if ($enable_declare == true) {
-		$d="d";
-		$lanmu_result = $db->query("SELECT * FROM {$tablepre}declarecate WHERE fid = 0");
-		$lanmu_d_arr = array();
-		while($lanmu_d = $db->fetch_array($lanmu_result)){
-			$lanmu_d['cando'] = (strpos($userarr['actions'], $d.$lanmu_d['id'].$d) !== false || $userarr['actions'] == 'all') ? 1 : 0;
-			$lanmu_d_arr[] = $lanmu_d;
-		}
-	}	
-	unset($depa);
 	include template("user_edit");
 }
 elseif($todo=="saveedit")
@@ -241,28 +198,19 @@ elseif($todo=="saveedit")
 	//接收用户ID
 	$uid = intval($_POST['uid']);
 
-	//管理员权限检测,只能修改修改自己的密码
-	if($_SESSION['userlevel']==2)
-	{
-		if($_SESSION['uid']!=$uid)
-		{
-			e('user_access_dined');
-		}
-	}
-
-	$username		= $_POST['username'];
-	$password		= $_POST['password'];
-	$old_password = isset ( $_POST ['old_password'] ) ? $_POST ['old_password'] : '';
-	$userlevel		= intval($_POST['userlevel']);
-	$zname			= $_POST['zname'];
-	$zhiwei			= $_POST['zhiwei'];
-	$QQ			= $_POST['QQ'];
-	$phone			= $_POST['phone'];
-	$bumen			= $_POST['bumen'];
+	$old_password	= isset ( $_POST ['old_password'] ) ? $_POST ['old_password'] : '';
+	$password		= isset ( $_POST ['password'] ) ? $_POST ['password'] : '';
+	$password2		= isset ( $_POST ['password2'] ) ? $_POST ['password2'] : '';
 	
-	/*if (strlen($password)<6) {
-		e('密码长度不能小于六位');
-	}*/
+	$username		= isset ( $_POST ['username'] ) ? $_POST ['username'] : '';
+	$zname		= isset ( $_POST ['zname'] ) ? $_POST ['zname'] : '';
+	$userlevel	= 1;
+	$email		= isset ( $_POST ['email'] ) ? $_POST ['email'] : '';
+	
+	//if (strlen($password)<6) e('密码长度不能小于六位');
+	if ($password!=$password2) e('两次密码不相同');
+	if (! filter_var ( $email,  FILTER_VALIDATE_EMAIL)) e('邮箱格式不正确');
+	
 	$sql = "";
 	//用户名正则表达式
 	$reg = "/^([a-zA-Z0-9]|[._]){4,19}$/";
@@ -359,11 +307,8 @@ elseif($todo=="saveedit")
 				$sql .= ", actions = '$actions' ";
 			}
 		}
-		//if (!empty($bumen)) {
-			$sql .= ",bumen = '$bumen'";
-		//}
 		// 去除条件中多余的','
-		$sql .= ",zname = '$zname',zhiwei = '$zhiwei',QQ = '$QQ',phone = '$phone',";
+		$sql .= ",zname = '$zname',email = '$email',";
 		$sql  = preg_replace('/,$/','',$sql);	
 		$sql .= " WHERE id = $uid";
 		$db->query($sql);
@@ -373,11 +318,7 @@ elseif($todo=="saveedit")
 		e("user_username_notexist");
 
 	}
-	if($_SESSION['userlevel'] == 1) {
-		s('user_update_sucess','?action='.$act['action'].'&todo=list');
-	}else{
-		s('修改成功','?action=zhouzhi');
-	}
+		s('user_update_sucess','?action='.$act['action'].'&todo=edituser');
 	
 }
 elseif($todo=="deluser")//删除用户
@@ -393,16 +334,6 @@ elseif($todo=="deluser")//删除用户
 	
 }
 /**
- * 级别
- */
-function getJiBie($param) {
-	if ($param=='2') {
-		return '管理层';
-	}elseif ($param=='3'){
-		return '普通员工';
-	};
-}
-/**
  * qq
  */
 function r_qq($qq) {
@@ -411,16 +342,5 @@ function r_qq($qq) {
 	}else {
 		return '------';
 	}
-}
-function getDepartment($depaId) {
-	if (empty($depaId)) {
-		return '------';
-	}
-	global $db,$tablepre;
-	$depaInfo = $db->fetch_one_array("SELECT * FROM {$tablepre}department WHERE id = ".intval($depaId));
-	if (empty($depaInfo['department'])) {
-		return '------';
-	}
-	return "<a href='?action=system_user&todo=list&bumen=".$depaInfo['id']."'>".$depaInfo['department']."</a>";
 }
 ?>

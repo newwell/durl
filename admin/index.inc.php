@@ -1,5 +1,6 @@
 <?php
-if(!defined('IN_SITE')) exit('Access Denied');
+//if(!defined('IN_SITE')) 
+exit('Access Denied');
 $att_type = array('txt','rar','zip','gif', 'jpg', 'jpeg', 'png','bmp');
 
 if($todo=='')

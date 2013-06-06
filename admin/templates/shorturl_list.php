@@ -22,7 +22,7 @@
 			<th width="8%">操作</th>		
         </tr>
 		<?php if(is_array($durlArr)) { foreach($durlArr as $key => $value) { ?>
-        <tr bgcolor="#E4EDF9">
+        <tr <?php if (($key%2) == 0){echo 'bgcolor="#E4EDF9"';}else {echo 'bgcolor="#F1F3F5"';}?>>
             <td class="list"><input type="checkbox" name="ids[]" value="<?php echo $value['id']?>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>      
             <td class="list xiankuan"><a href="<?php echo $value['url']?>" target="_blank" title="<?php echo $value['url']?>"><?php echo $value['url']?></a></td>  
             <td class="list"><?php echo $value['alias']?></td>

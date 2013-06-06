@@ -21,7 +21,7 @@ switch ($todo) {
 		$url	= htmlspecialchars( isset($_POST['url']) ? $_POST['url'] : '' );
 		$alias	= htmlspecialchars( isset($_POST['alias']) ? $_POST['alias'] : '' );
 		$annotation	= htmlspecialchars( isset($_POST['annotation']) ? $_POST['annotation'] : '' );
-		if (empty($url)) e('链接地址不能为空');
+		if (! filter_var ( $url, FILTER_VALIDATE_URL )) e('不是正常链接');
 		if (!empty($alias)) {
 			if (shorturl_alias_check('', $alias))e('别名已经别占用');
 		}
@@ -47,7 +47,7 @@ switch ($todo) {
 		$annotation	= htmlspecialchars( isset($_POST['annotation']) ? $_POST['annotation'] : '' );
 		
 		if (empty($id)) e('传参错误');
-		if (empty($url)) e('链接地址不能为空');
+		if (! filter_var ( $url, FILTER_VALIDATE_URL )) e('不是正常链接');
 		if (!empty($alias)) {
 			if (shorturl_alias_check($id, $alias))e('别名已经别占用');
 		}

@@ -188,15 +188,7 @@ function send_http_status($code) {
 	);
 	if(array_key_exists($code,$_status)) header('HTTP/1.1 '.$code.' '.$_status[$code]);
 }
-/**
- * 得到全球头像
- * @param string	$email
- * @param int		$size
- * @param url		$default	默认图标地址
- */
-function get_gravatar( $email, $size = 80, $default = 'mm') {
-    return $grav_url = "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?d=" . urlencode( $default ) . "&s=" . $size;
-}
+
 /**
  * 加载类
  * @param string $classname	类名

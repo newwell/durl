@@ -1020,5 +1020,12 @@ function uploadfile($filename,$tmpfile,$filesize,$type,$attach_dir='file',$uploa
     }
     return $attachpath;
 }
- 
- ?>
+/**
+ * 得到全球头像
+ * @param string	$email
+ * @param int		$size
+ * @param url		$default	默认图标地址
+ */
+function get_gravatar( $email, $size = 80, $default = 'mm') {
+    return $grav_url = "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?d=" . urlencode( $default ) . "&s=" . $size;
+}
