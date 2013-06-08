@@ -16,7 +16,7 @@ margin-bottom: 0px;
 background-color: #276CB2;
 }
 </style>
-<script>
+<script type="text/javascript">
 var status = 1;
 function switchSysBar(){
  var switchPoint = $('switchPoint');
@@ -34,7 +34,7 @@ function switchSysBar(){
 }
 function change(ele)
 {
-ele.style.fontWeight = 'bold';
+//ele.style.fontWeight = 'bold';
 var nav = document.getElementsByName('nav');
 for(i=0;i<nav.length;i++) 
 {

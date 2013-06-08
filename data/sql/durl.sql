@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 06 月 06 日 13:10
+-- 生成日期: 2013 年 06 月 08 日 09:16
 -- 服务器版本: 5.1.36-community-log
 -- PHP 版本: 5.3.10
 
@@ -40,7 +40,7 @@ INSERT INTO `durl_settings` (`variable`, `value`) VALUES
 ('sitename', '峰易海站务管理系统'),
 ('sitephone', '13026105388'),
 ('siteaddress', '湖北省武汉市'),
-('siteemail', 'hubei_java@qq.com'),
+('siteemail', 'v@dazan.cn'),
 ('sitestatus', '1'),
 ('siteclosereason', '本网站长的过于风流倜傥,特关闭2小时以面壁思过'),
 ('siteadminip', ''),
@@ -133,15 +133,7 @@ CREATE TABLE IF NOT EXISTS `durl_systemuser` (
 --
 
 INSERT INTO `durl_systemuser` (`id`, `username`, `zname`, `password`, `lastlogintime`, `lastloginip`, `actions`, `userlevel`, `QQ`, `email`) VALUES
-(1, 'admin', '刘维', 'eed50d3cecd0c41b29fff87df49f5ace', 1370552331, '127.0.0.1', 'all', 1, '0', 'hubei_java@qq.com'),
-(24, 'liuwei', '刘维', 'e10adc3949ba59abbe56e057f20f883e', 1330192055, '127.0.0.1', 'system_set,database_query,system_user,vps,m_website', 2, '1040811569', '13026105388'),
-(245, 'wanghuijun', '王慧君', 'e10adc3949ba59abbe56e057f20f883e', 1324047804, '127.0.0.1', 'all', 3, '402158246', ''),
-(243, 'youjuan', '游娟', 'e10adc3949ba59abbe56e057f20f883e', 1323872067, '127.0.0.1', 'system_user,zhouzhi,announcement', 3, '347130829', '18702761393'),
-(244, 'zhangjuan', '张娟', 'e10adc3949ba59abbe56e057f20f883e', 1324119720, '192.168.1.101', 'system_user,zhouzhi,announcement', 3, '857824865', ''),
-(246, 'yangxinwei', '杨兴伟', 'e10adc3949ba59abbe56e057f20f883e', 1324047906, '127.0.0.1', 'all', 3, '292345213', ''),
-(247, 'lijingbo', '李敬波', 'e10adc3949ba59abbe56e057f20f883e', 1324052045, '127.0.0.1', 'all', 3, '514822563', ''),
-(248, 'liuying', '刘莹', 'e10adc3949ba59abbe56e057f20f883e', 1325930665, '127.0.0.1', 'system_user,zhouzhi,announcement', 3, '2295266346', ''),
-(249, 'qweqweq', '陈华峰', 'e10adc3949ba59abbe56e057f20f883e', 1330357427, '127.0.0.1', '', 2, '676529424', '13216546465');
+(1, 'admin', '刘维', 'e10adc3949ba59abbe56e057f20f883e', 1370706221, '127.0.0.1', 'all', 1, '0', 'hubei_java@qq.com');
 
 -- --------------------------------------------------------
 
@@ -224,48 +216,8 @@ INSERT INTO `durl_urls` (`id`, `url`, `alias`, `add_date`, `annotation`, `times`
 (231, 'http://www.taobao.comhttp://www.baidu.com', NULL, 1370010819, NULL, 0),
 (232, 'http://www.dazan.cn', NULL, 1370010819, NULL, 0),
 (233, 'http://www.taobao.com', NULL, 1370010819, NULL, 0),
-(252, 'http://www.taobao.comhttp://www.baidu.com', NULL, 1370010822, NULL, 0),
-(253, 'http://www.dazan.cn', NULL, 1370010822, NULL, 0),
-(254, 'http://www.taobao.comhttp://www.baidu.com', NULL, 1370010822, NULL, 0),
-(255, 'http://www.dazan.cn', NULL, 1370010822, NULL, 0),
-(256, 'http://www.taobao.comhttp://www.baidu.com', NULL, 1370010822, NULL, 0),
-(257, 'http://www.dazan.cn', NULL, 1370010822, NULL, 0),
-(258, 'http://www.taobao.comhttp://www.baidu.com', NULL, 1370010822, NULL, 0),
 (259, 'http://www.dazan.cn', NULL, 1370010822, NULL, 0),
-(260, 'http://www.taobao.com', NULL, 1370010822, NULL, 0),
-(331, 'http://www.dazan.cn', NULL, 1370279377, '', 0),
-(332, 'http://www.taobao.comhttp://www.baidu.com', NULL, 1370279377, '', 0),
-(333, 'http://www.dazan.cn', NULL, 1370279377, '', 0),
-(334, 'http://www.taobao.comhttp://www.baidu.com', NULL, 1370279377, '', 0),
-(335, 'http://www.dazan.cn', NULL, 1370279377, '', 0),
-(336, 'http://www.taobao.com', NULL, 1370279377, '', 0),
-(337, 'http://www.baidu.com', NULL, 1370279377, '', 0),
-(338, 'http://www.dazan.cn', NULL, 1370279377, '', 0),
-(339, 'http://www.taobao.comhttp://www.baidu.com', NULL, 1370279377, '', 0),
-(340, 'http://www.dazan.cn', NULL, 1370279377, '', 0),
-(341, 'http://www.taobao.comhttp://www.baidu.com', NULL, 1370279377, '', 0),
-(342, 'http://www.dazan.cn', NULL, 1370279377, '', 0),
-(343, 'http://www.taobao.comhttp://www.baidu.com', NULL, 1370279377, '', 0),
-(344, 'http://www.dazan.cn', NULL, 1370279377, '', 0),
-(345, 'http://www.taobao.comhttp://www.baidu.com', NULL, 1370279377, '', 0),
-(346, 'http://www.dazan.cn', NULL, 1370279377, '', 0),
-(347, 'http://www.taobao.comhttp://www.baidu.com', NULL, 1370279377, '', 0),
-(348, 'http://www.dazan.cn', NULL, 1370279377, '', 0),
-(349, 'http://www.taobao.comhttp://www.baidu.com', NULL, 1370279377, '', 0),
-(350, 'http://www.dazan.cn', NULL, 1370279377, '', 0),
-(351, 'http://www.taobao.comhttp://www.baidu.com', NULL, 1370279377, '', 0),
-(352, 'http://www.dazan.cn', NULL, 1370279377, '', 0),
-(353, 'http://www.taobao.comhttp://www.baidu.com', NULL, 1370279377, '', 0),
-(354, 'http://www.dazan.cn', NULL, 1370279377, '', 0),
-(355, 'http://www.taobao.comhttp://www.baidu.com', NULL, 1370279377, '', 0),
-(356, 'http://www.dazan.cn', NULL, 1370279377, '', 0),
-(357, 'http://www.taobao.comhttp://www.baidu.com', NULL, 1370279377, '', 0),
-(358, 'http://www.dazan.cn', NULL, 1370279377, '', 0),
-(359, 'http://www.taobao.comhttp://www.baidu.com', NULL, 1370279377, '', 0),
-(360, 'http://www.dazan.cn', NULL, 1370279377, '', 0),
-(361, 'http://www.taobao.comhttp://www.baidu.com', NULL, 1370279377, '', 0),
-(362, 'http://www.dazan.cn', NULL, 1370279377, '', 0),
-(363, 'http://www.taobao.com', NULL, 1370279377, '', 0);
+(260, 'http://www.taobao.com', NULL, 1370010822, NULL, 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

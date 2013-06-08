@@ -6,7 +6,7 @@
 <input type="hidden" value="<?php echo $formhash;?>" name="formhash">
 <table align="center" class="formtable" cellpadding="0" cellspacing="1" width="97%">
 	<tr>
-	    <td width="80px" align="right">输入短码或别名:</td>
+	    <td width="20%" align="right">输入短码或别名:</td>
 	    <td>
 	        <input name="code" required="true" style="border:#336699 1px solid;width: 45%;height: 40px;"/>
 	   		*不能为空</td>

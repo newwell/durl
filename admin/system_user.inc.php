@@ -249,27 +249,8 @@ elseif($todo=="saveedit")
 
 		$sql .= " username = '$username'";
 
-		
-		if($_SESSION['userlevel'] == 1)  //用户级别为超级管理员
-		{
-			if(!empty($password)) 
-			{
-				if(preg_match($reg,$password) ) 
-				{
-					$password = md5($password);
-					$sql .= ",password = '$password'";
-				} 
-				else 
-				{
-					e("user_userpassword_notmatch");
-				}
-			}
-		}
-		elseif($_SESSION['userlevel'] == 2 || $_SESSION['userlevel'] == 3)
-		{
-			if (empty($old_password) && !empty($password)) {
-				e("改密码需要原密码");
-			}
+			if (empty($old_password) && !empty($password)) e("改密码需要原密码");
+			
 			//密码检查
 			if(!empty($password) && !empty($old_password)) 
 			{
@@ -284,9 +265,10 @@ elseif($todo=="saveedit")
 					{
 						e("user_userpassword_notmatch");
 					}
+				}else {
+					e("原密码不正确");
 				}
 			}
-		}
 		
 		if($_SESSION['userlevel'] == 1)  //用户级别为超级管理员
 		{
