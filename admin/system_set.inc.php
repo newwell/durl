@@ -41,12 +41,6 @@ if($todo=="show")
 	//ajaxs('system_setconfig_success');
     s('system_setconfig_success','?action='.$act['action'].'&todo=show');
 }
-elseif($todo=="ajax")//显示文件框架
-{
-	$available_templates = getTemplateArr('templates/');
-	include template('template_declare');
-} 
-
 function getTemplateArr($dir)
 {
 	$available_templates = array();

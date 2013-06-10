@@ -129,8 +129,17 @@ function shorturl_restore($code) {
 	$result	= $db->fetch_one_array($sql);
 	return $result;
 }
-
-
+/**
+ * 通过ID增加一个浏览次数
+ * @param int $id	短url的ID
+ */
+function shorturl_times_statistic($id) {
+	global $db,$tablepre;
+	if(empty($id))return false;
+	$sql = "UPDATE  `{$tablepre}urls` SET  `times` = times +1 WHERE id =".$id;
+	$result	= $db->fetch_one_array($sql);
+	return $result;
+}
 
 
 
