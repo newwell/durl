@@ -13,12 +13,17 @@
 
 /**
  * 获取短url列表
- * @param int $startlimit	开始行
- * @param int $perpage		结束行
+ * @param int		$startlimit	开始行
+ * @param int		$perpage	结束行
+ * @param array()	$where		查找的条件
  */
-function shorturl_list($startlimit,$endlimit) {
+function shorturl_list($startlimit,$endlimit,$where='') {
 	global $db,$tablepre;
-	$sql		= "SELECT * FROM  `{$tablepre}urls` ORDER BY add_date DESC LIMIT $startlimit , $endlimit";
+	$sql = "SELECT * FROM  `{$tablepre}urls` ";
+	if (!empty($where)) {
+		$sql .="WHERE ".$where;
+	}
+	$sql .= "ORDER BY add_date DESC LIMIT $startlimit , $endlimit";
 	$result		= $db->query($sql);
 	$resultArr	= array();
 	while($arr	= $db->fetch_array($result)){
@@ -30,9 +35,12 @@ function shorturl_list($startlimit,$endlimit) {
 /**
  * 获取短URL的总数
  */
-function shorturl_total() {
+function shorturl_total($where='') {
 	global $db,$tablepre;
-	$sql	= "SELECT COUNT(id) AS countnum FROM {$tablepre}urls";
+	$sql	= "SELECT COUNT(id) AS countnum FROM {$tablepre}urls ";
+	if (!empty($where)) {
+		$sql .="WHERE ".$where;
+	}
 	$result	= $db->fetch_one_array($sql);
 	return $result['countnum'];
 }
@@ -140,11 +148,3 @@ function shorturl_times_statistic($id) {
 	$result	= $db->fetch_one_array($sql);
 	return $result;
 }
-
-
-
-
-
-
-
-

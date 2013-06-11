@@ -5,6 +5,42 @@ global $act,$todo,$tablepre,$db;
 admin_priv($act['action']);
 require_once 'include/func/shorturl.func.php';
 switch ($todo) {
+	case 'search':
+		$d_option	= htmlspecialchars( isset($_REQUEST['d_option']) ? $_REQUEST['d_option'] : '' );
+		$keywork	= htmlspecialchars( isset($_REQUEST['keywork']) ? $_REQUEST['keywork'] : '' );
+
+		$page   = intval( isset($_GET['page']) ? $_GET['page'] : 1 );
+		$perpage = intval( isset($_GET['perpage']) ? $_GET['perpage'] : 20 );
+		
+		if($page > 0){
+			$startlimit = ($page - 1) * $perpage;
+		}else{
+			$startlimit = 0;
+		}
+
+		
+		$where = "";
+		if (!empty($keywork)){
+			switch ($d_option) {
+				case 'annotation':
+					$where .= "annotation LIKE '%$keywork%' ";
+				break;
+				case 'url':
+					$where .= "url LIKE '%$keywork%' ";
+				break;
+				case 'alias':
+					$where .= "alias LIKE '%$keywork%' ";
+				break;
+				default:
+					e('错误的参数');
+				break;
+			}
+		}
+		$total		= shorturl_total($where);
+		$durlArr =shorturl_list($startlimit, $perpage,$where);
+		$page_control = multipage($total,$perpage,$page);
+		include template('shorturl_list');
+		break;
 	case 'dorestore':
 		$code	= isset($_POST['code']) ? $_POST['code'] : '';
 		//if (empty($code))e('未输入短码');

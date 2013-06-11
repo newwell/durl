@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 06 月 10 日 09:32
+-- 生成日期: 2013 年 06 月 11 日 08:03
 -- 服务器版本: 5.1.36-community-log
 -- PHP 版本: 5.3.10
 
@@ -43,7 +43,7 @@ INSERT INTO `durl_settings` (`variable`, `value`) VALUES
 ('siteemail', 'v@dazan.cn'),
 ('sitestatus', '1'),
 ('siteclosereason', '本网站长的过于风流倜傥,特关闭2小时以面壁思过'),
-('siteurl', 'http://www.dazan.cn/'),
+('siteurl', 'http://durl.dazan.cn/'),
 ('siteurlrewrite', 'none'),
 ('sitebrowser', '建议在IE6以上浏览器 1024*768分辨率下浏览本站'),
 ('sitedescription', '峰易海贸易有限公司	站务管理系统'),
@@ -118,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `durl_systemuser` (
 --
 
 INSERT INTO `durl_systemuser` (`id`, `username`, `zname`, `password`, `lastlogintime`, `lastloginip`, `actions`, `userlevel`, `QQ`, `email`) VALUES
-(1, 'admin', '刘维', 'e10adc3949ba59abbe56e057f20f883e', 1370865700, '127.0.0.1', 'all', 1, '0', 'hubei_java@qq.com');
+(1, 'admin', '刘维', 'e10adc3949ba59abbe56e057f20f883e', 1370949551, '127.0.0.1', 'all', 1, '0', 'hubei_java@qq.com');
 
 -- --------------------------------------------------------
 
@@ -142,10 +142,9 @@ CREATE TABLE IF NOT EXISTS `durl_urls` (
 
 INSERT INTO `durl_urls` (`id`, `url`, `alias`, `add_date`, `annotation`, `times`) VALUES
 (10000, 'http://www.baidu.com', 'dazan', 1370010810, NULL, 2),
-(154, 'http://www.dazan.cn', 'qq', 1370010810, NULL, 5),
+(154, 'http://www.dazan.cn', 'qq', 1370010810, NULL, 6),
 (156, 'http://www.dazan.cn', 'www', 1370010810, NULL, 0),
 (158, 'http://www.dazan.cn', NULL, 1370010810, NULL, 0),
-(160, 'http://www.dazan.cn', NULL, 1370010810, NULL, 0),
 (162, 'http://www.dazan.cn', NULL, 1370010810, NULL, 0),
 (163, 'http://www.taobao.comhttp://www.baidu.com', NULL, 1370010810, NULL, 0),
 (164, 'http://www.dazan.cn', NULL, 1370010810, NULL, 0),
@@ -162,7 +161,6 @@ INSERT INTO `durl_urls` (`id`, `url`, `alias`, `add_date`, `annotation`, `times`
 (186, 'http://www.taobao.comhttp://www.baidu.com', NULL, 1370010815, NULL, 0),
 (187, 'http://www.dazan.cn', NULL, 1370010815, NULL, 0),
 (188, 'http://www.taobao.comhttp://www.baidu.com', NULL, 1370010815, NULL, 0),
-(189, 'http://www.dazan.cn', 'getQQ', 1370882750, '', 0),
 (190, 'http://www.taobao.comhttp://www.baidu.com', NULL, 1370010815, NULL, 0),
 (191, 'http://www.dazan.cn', NULL, 1370010815, NULL, 0),
 (193, 'http://www.dazan.cn', NULL, 1370010815, NULL, 0),
