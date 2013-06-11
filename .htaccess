@@ -1,8 +1,8 @@
-#¶¨Òå404´íÎóÒ³Ãæ
+#å®šä¹‰404é”™è¯¯é¡µé¢
 ErrorDocument 404 /404.html
 
 
-#URLÖØĞ´¹æÔò
+#URLé‡å†™è§„åˆ™
 <IfModule mod_rewrite.c>
 RewriteEngine on
 RewriteRule ^m.do$	m.php
@@ -12,14 +12,14 @@ RewriteRule ^m.asp$	m.php
 RewriteRule ^([a-zA-Z0-9_]+)$	j.php?c=$1
 </IfModule>
 
-#ÅäÖÃÑ¹Ëõ
+#é…ç½®å‹ç¼©
 <IfModule mod_deflate.c>
 <FilesMatch ".(js|css|html|htm)$">
 SetOutputFilter DEFLATE
 </FilesMatch>
 </IfModule>
 
-#ÅäÖÃGZIPÑ¹Ëõ
+#é…ç½®GZIPå‹ç¼©
 <ifModule mod_gzip.c>
   mod_gzip_on Yes
   mod_gzip_dechunk Yes
@@ -31,7 +31,7 @@ SetOutputFilter DEFLATE
   mod_gzip_item_exclude rspheader ^Content-Encoding:.*gzip.*
 </ifModule>
 
-#ÅäÖÃ¿Í»§¶Ë»º´æÊ±¼ä
+#é…ç½®å®¢æˆ·ç«¯ç¼“å­˜æ—¶é—´
 <IfModule mod_expires.c>
 ExpiresActive On
 ExpiresByType image/gif A2592000
@@ -45,7 +45,7 @@ ExpiresByType text/javascript A2592000
 ExpiresByType text/html A600
 </IfModule>
 
-#Ö¸¶¨ºó×ºÎŞÈ¨·ÃÎÊ
+#æŒ‡å®šåç¼€æ— æƒè®¿é—®
 <FilesMatch "\.(bak|inc|lib|sh|tpl|lbi|dwt)$">
     order deny,allow
     deny from all

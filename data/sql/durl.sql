@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 06 月 10 日 08:39
+-- 生成日期: 2013 年 06 月 10 日 09:32
 -- 服务器版本: 5.1.36-community-log
 -- PHP 版本: 5.3.10
 
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `durl_settings` (
 --
 
 INSERT INTO `durl_settings` (`variable`, `value`) VALUES
-('sitename', '峰易海站务管理系统'),
+('sitename', '大赞短网址'),
 ('sitephone', '13026105388'),
 ('siteaddress', '湖北省武汉市'),
 ('siteemail', 'v@dazan.cn'),
@@ -162,7 +162,7 @@ INSERT INTO `durl_urls` (`id`, `url`, `alias`, `add_date`, `annotation`, `times`
 (186, 'http://www.taobao.comhttp://www.baidu.com', NULL, 1370010815, NULL, 0),
 (187, 'http://www.dazan.cn', NULL, 1370010815, NULL, 0),
 (188, 'http://www.taobao.comhttp://www.baidu.com', NULL, 1370010815, NULL, 0),
-(189, 'http://www.dazan.cn', NULL, 1370010815, NULL, 0),
+(189, 'http://www.dazan.cn', 'getQQ', 1370882750, '', 0),
 (190, 'http://www.taobao.comhttp://www.baidu.com', NULL, 1370010815, NULL, 0),
 (191, 'http://www.dazan.cn', NULL, 1370010815, NULL, 0),
 (193, 'http://www.dazan.cn', NULL, 1370010815, NULL, 0),

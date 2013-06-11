@@ -20,8 +20,8 @@ $do     = isset($_GET['do'])     ? trim($_GET['do']) : '';
 banip('admin');
 
 //模板路径设置
-$_TEMPLATESDIR = 'admin/templates';
-$_CACHEDIR     = 'admin/cache';
+$_TEMPLATESDIR = 'admin/templates/';
+$_CACHEDIR     = 'admin/cache/';
 
 //模块导航
 

@@ -1,5 +1,6 @@
 <?php
 define("IN_SITE", "TRUE");
+define("DURL_VERSIONS", "2.13");
 header("Cache-control: private");
 header("Content-Type: text/html; charset=UTF-8");  
 //关闭PHP.ini的错误提示

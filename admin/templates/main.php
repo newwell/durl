@@ -23,13 +23,13 @@ function switchSysBar(){
  var left = $('left');
      if (1 == status){
   status = 0;
-          switchPoint.src = '<?=$_TEMPLATESDIR?>/image/icon_open.png';
-          left.style.display="none"
+          switchPoint.src = '<?php echo $_TEMPLATESDIR?>/image/icon_open.png';
+          left.style.display="none";
      }
      else{
   status = 1;
-          switchPoint.src = '<?=$_TEMPLATESDIR?>/image/icon_close.png';
-          left.style.display=""
+          switchPoint.src = '<?php echo $_TEMPLATESDIR?>/image/icon_close.png';
+          left.style.display="";
      }
 }
 function change(ele)
@@ -47,19 +47,19 @@ nav[i].style.fontWeight = '';
 </script>
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
   <tr>
-    <td width="31%" background="<?=$_TEMPLATESDIR?>/image/pic_bg.gif" height="60" class="top2">-</td>
-    <td width="69%" align="right" background="<?=$_TEMPLATESDIR?>/image/pic_bg.gif" class="top2">DURL短网址管理</td>
+    <td width="31%" background="<?php echo $_TEMPLATESDIR?>/image/pic_bg.gif" height="60" class="top2"><?php echo $setting_sitename;?></td>
+    <td width="69%" align="right" background="<?php echo $_TEMPLATESDIR?>/image/pic_bg.gif" class="top2">DURL短网址管理</td>
   </tr>
 </table>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td >
-      <table width="100%" border="0" cellpadding="0" cellspacing="0" background="<?=$_TEMPLATESDIR?>/image/pic_right_bg2.gif">
+      <table width="100%" border="0" cellpadding="0" cellspacing="0" background="<?php echo $_TEMPLATESDIR?>/image/pic_right_bg2.gif">
         <tr>
-          <td width="45%" height="31" valign="top" background="<?=$_TEMPLATESDIR?>/image/pic_right_bg1.png" class="left1">
+          <td width="45%" height="31" valign="top" background="<?php echo $_TEMPLATESDIR?>/image/pic_right_bg1.png" class="left1">
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
-                <td><img src="<?=$_TEMPLATESDIR?>/image/pic_icon.gif" width="24" height="20" hspace="6" vspace="3" /></td>
+                <td><img src="<?php echo $_TEMPLATESDIR?>/image/pic_icon.gif" width="24" height="20" hspace="6" vspace="3" /></td>
                 <!--<td valign="middle" class="top3" align="left"><a href="?action=show&todo=left&do=system" name="nav" onclick="change(this);" target="menu" id="nav0">系统管理</a> </td>-->
                 
               </tr>
@@ -68,7 +68,7 @@ nav[i].style.fontWeight = '';
           <td align="right" valign="top" width="55%">
             <table width="443" border="0" align="right" cellpadding="0" cellspacing="0">
               <tr>
-                <td height="31" align="right" background="<?=$_TEMPLATESDIR?>/image/pic_right_bg3.png" class="top"><a href="index.php" target="_blank"></a> <a href="javascript:adminlogout();">退出登陆</a> </td>
+                <td height="31" align="right" background="<?php echo $_TEMPLATESDIR?>/image/pic_right_bg3.png" class="top"><a href="index.php" target="_blank"></a> <a href="javascript:adminlogout();">退出登陆</a> </td>
               </tr>
             </table>
           </td>
@@ -86,7 +86,7 @@ nav[i].style.fontWeight = '';
       <table height="100%" cellspacing="0" cellpadding="0" border="0">
         <tbody>
           <tr>
-            <td style="HEIGHT: 100%" ><span   title="关闭/打开"><a href="javascript:switchSysBar();"><img id="switchPoint" src="<?=$_TEMPLATESDIR?>/image/icon_close.png" border="0"></a></span> </td>
+            <td style="HEIGHT: 100%" ><span   title="关闭/打开"><a href="javascript:switchSysBar();"><img id="switchPoint" src="<?php echo $_TEMPLATESDIR?>/image/icon_close.png" border="0"></a></span> </td>
           </tr>
         </tbody>
       </table>
