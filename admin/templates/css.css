@@ -1,4 +1,18 @@
 
+body,td,th {
+/*font-size: 12px;*/
+}
+body {
+margin: 0px;
+background-color: #276CB2;
+overflow-x:hidden; overflow:hidden;
+margin-left: 0px;
+margin-top: 0px;
+margin-right: 0px;
+margin-bottom: 0px;
+background-color: #276CB2;
+}
+
 
 a:link{text-decoration:none;  font-size:9pt; color:#000;}
 a:visited {text-decoration: none; font-size:9pt; color:#000;}
@@ -75,24 +89,22 @@ html {
 	
 	
 }
-body input {font-size:12px; font-family:Verdana, Arial, Helvetica, sans-serif;}
-body textarea{font-size:12px; font-family:Verdana, Arial, Helvetica, sans-serif;}
+body input {font-size:12px; }
+body textarea{font-size:12px;}
 body{
-	SCROLLBAR-FACE-COLOR: #72A3D0; SCROLLBAR-HIGHLIGHT-COLOR: #337ABB; 
+	/*SCROLLBAR-FACE-COLOR: #72A3D0; SCROLLBAR-HIGHLIGHT-COLOR: #337ABB; 
 SCROLLBAR-SHADOW-COLOR: #337ABB; SCROLLBAR-DARKSHADOW-COLOR: #337ABB; 
 SCROLLBAR-3DLIGHT-COLOR: #337ABB; SCROLLBAR-ARROW-COLOR: #FFFFFF;
-SCROLLBAR-TRACK-COLOR: #337EC0; 
+SCROLLBAR-TRACK-COLOR: #337EC0; */
    	margin:0px;
    	background-color:#ffffff;
    /*  overflow: hidden;*/
    	font-size:12px;
-   	font-family:Verdana, Arial, Helvetica, sans-serif;
    	color:#666666;
 	
 	/*SCROLLBAR-TRACK-COLOR: #276CB2;*/
    }
 body td{
-   font-family:Verdana;
    font-size:12px;
    color:#666666;
    }
@@ -110,7 +122,7 @@ body td{
 	color:#FFFFFF;
 	padding-left:15px;
 }
-.title { font-size:22px; font-family:宋体; color:#336699; font-weight:bold;}
+.title { font-size:22px; color:#336699; font-weight:bold;}
 .headnav { color:#000000; margin:5px;}
 .headnav a{
 	text-decoration:none;
@@ -305,7 +317,6 @@ text-align:center;}
 	border:1px solid #336699;     
 	background-color:#FFFFFF;
 	color:#336699;
-	font-family:Georgia, "Times New Roman", Times, serif;
 } 
 
 
@@ -317,7 +328,6 @@ text-align:center;}
    text-align:center;
    font-size:12px;
    color:#0C4487;
-   font-family:tahoma;
    margin-left:auto;
     margin-right:auto;
    }
@@ -340,7 +350,6 @@ text-align:center;}
 	width:100%;
 	font-size:12px;
 	color:#FFFFFF;
-	font-family:Verdana, Arial, Helvetica, sans-serif;
 }
 .panelcontent {
 	position:absolute;
@@ -370,7 +379,6 @@ text-align:center;}
 		PADDING-LEFT: 24px; 
 		FONT-SIZE: 12px;
 		COLOR: red; 
-		FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
 		background:url(image/error.gif) no-repeat 0px 0px;
 		TEXT-ALIGN: left;
 		background-color:#FFFFFF;
