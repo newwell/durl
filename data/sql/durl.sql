@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2013 年 06 月 11 日 08:03
+-- 生成日期: 2013 年 07 月 17 日 04:47
 -- 服务器版本: 5.1.36-community-log
--- PHP 版本: 5.3.10
+-- PHP 版本: 5.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -118,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `durl_systemuser` (
 --
 
 INSERT INTO `durl_systemuser` (`id`, `username`, `zname`, `password`, `lastlogintime`, `lastloginip`, `actions`, `userlevel`, `QQ`, `email`) VALUES
-(1, 'admin', '刘维', 'e10adc3949ba59abbe56e057f20f883e', 1370949551, '127.0.0.1', 'all', 1, '0', 'hubei_java@qq.com');
+(1, 'admin', '刘维', 'e10adc3949ba59abbe56e057f20f883e', 1374064032, '127.0.0.1', 'all', 1, '0', 'hubei_java@qq.com');
 
 -- --------------------------------------------------------
 
@@ -154,11 +154,8 @@ INSERT INTO `durl_urls` (`id`, `url`, `alias`, `add_date`, `annotation`, `times`
 (170, 'http://www.dazan.cn', NULL, 1370010810, NULL, 0),
 (180, 'http://www.baidu.com', NULL, 1370010815, NULL, 0),
 (181, 'http://www.dazan.cn', NULL, 1370010815, NULL, 0),
-(182, 'http://www.taobao.comhttp://www.baidu.com', NULL, 1370010815, NULL, 0),
 (183, 'http://www.dazan.cn', NULL, 1370010815, NULL, 0),
-(184, 'http://www.taobao.comhttp://www.baidu.com', NULL, 1370010815, NULL, 0),
 (185, 'http://www.dazan.cn', NULL, 1370010815, NULL, 1),
-(186, 'http://www.taobao.comhttp://www.baidu.com', NULL, 1370010815, NULL, 0),
 (187, 'http://www.dazan.cn', NULL, 1370010815, NULL, 0),
 (188, 'http://www.taobao.comhttp://www.baidu.com', NULL, 1370010815, NULL, 0),
 (190, 'http://www.taobao.comhttp://www.baidu.com', NULL, 1370010815, NULL, 0),
@@ -181,8 +178,7 @@ INSERT INTO `durl_urls` (`id`, `url`, `alias`, `add_date`, `annotation`, `times`
 (231, 'http://www.taobao.comhttp://www.baidu.com', NULL, 1370010819, NULL, 0),
 (232, 'http://www.dazan.cn', NULL, 1370010819, NULL, 0),
 (233, 'http://www.taobao.com', NULL, 1370010819, NULL, 0),
-(10001, 'http://www.dazan.cn/module-12.html', '', 1370878992, '', 0),
-(10002, 'http://www.baidu.com', NULL, 1370881258, NULL, 0),
+(10002, 'http://127.0.0.1/test/get_headers.php', '', 1372516280, '', 0),
 (10003, 'http://www.dazan.cn', NULL, 1370881258, NULL, 0),
 (10004, 'http://www.taobao.com', NULL, 1370881258, NULL, 0);
 
