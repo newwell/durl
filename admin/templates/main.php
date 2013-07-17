@@ -6,7 +6,7 @@ $(document).ready(function(){
 	$("#switchPoint").click(function(){
 		$("#left").slideToggle("fast");
 	});
-
+	$("body").toggleClass('hidden_body_overflow_y');
 });	
 </script>
 <table width="100%" border="0" cellpadding="0" cellspacing="0" class="wui_header">
@@ -17,7 +17,7 @@ $(document).ready(function(){
 </table>
 <table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" style="table-layout: fixed;">
   <tr>
-    <td width="205" id="left">
+    <td width="205px" id="left">
       <iframe frameborder="0" id="menu" name="menu" src="?action=show&todo=left&do=system"  style="height: 100%; width: 100%; z-index: 1;overflow: auto;"></iframe>
     </td>
     <td style="WIDTH:7px" bgcolor="#F3F3F3">
@@ -40,8 +40,5 @@ $(document).ready(function(){
     </td>
   </tr>
 </table>
-<script>
-change($('nav0'));
-</script>
 </body>
 </html>
